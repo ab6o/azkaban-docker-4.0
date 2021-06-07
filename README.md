@@ -10,6 +10,18 @@ This is the docker image for the Azkaban Executor
 
 Has docker installed on your machine, If you're using Mac, Use this link for Docker Setup - https://docs.docker.com/docker-for-mac/install/
 
+### Building Docker Images
+
+```
+$ docker build --rm -f "docker/azkaban-web/Dockerfile" -t anandimmannavar/azkaban-web:2.0 --no-cache .
+```
+Building Docker Image for Azkaban Web Server
+
+```
+$ docker build --rm -f "docker/azkaban-exec/Dockerfile" -t anandimmannavar/azkaban-exec:2.0 --no-cache .
+```
+Building Docker Image for Azkaban Exec Server
+
 #### Database Setup
 Follow the steps to create user, grant permissions and also setup entire DB
 
@@ -34,7 +46,7 @@ mysql> grant all privileges on azkaban.* to 'azkaban'@'%';
 Once this is done, Let us create all the schema required for Azkaban.
 
 ```
-$ mysql -uazkaban -pazkaban azkaban < <Project-Path>/azkaban-4.0.0/azkaban-db/build/sql/create-all-sql-0.1.0-SNAPSHOT.sql
+$ mysql -uazkaban -pazkaban azkaban < <Project-Path>/azkaban-4.0.0/azkaban-db/sql/create-all-sql-0.1.0-SNAPSHOT.sql
 ```
 
 
