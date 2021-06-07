@@ -2,6 +2,8 @@
 
 Deploy Azkaban Executor as Docker Container
 
+Have taken some inspiration from : https://github.com/dirathea/azkaban-docker
+
 ## Getting Started
 
 This is the docker image for the Azkaban Executor
