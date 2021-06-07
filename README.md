@@ -71,3 +71,15 @@ Here we are running executor container and connecting it to the bridge network c
 $ docker run --env AZK_MYSQL_HOST=host.docker.internal --network azk-net -d --rm -p 80:8081 anandimmannavar/azkaban-web:2.0
 ```
 Running Azkaban Web Server and also connect this web server to `azk-net` bridge network
+
+####Fixes
+
+Currently Executor auto register whenever it starts, but It will register with hostname (Container Id) instead of IP, So here is work around for now
+
+Get the IP of executor
+
+```
+$ docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' container_name_or_id
+```
+
+and run the following command in MySQL after replacing the IP and Container Id mentioned
